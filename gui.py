@@ -2,18 +2,20 @@
 UI Module for Grade Calculator
 Author: Joshua Costa
 Revamped By: Eric Vo and Curtis Jones
+ReRevamped By: Trenton Smith
 Created: 3/15/19
 Edited: 4/18/19
+Re-Edited: 4/18/23
 '''
 
 import tkinter as tk
 from tkinter import *
-from grade_calculator import GradeCalculator
+from gradecalc import GradeCalculator
 import tkinter.messagebox
 
-TITLE_FONT = ('Times New Roman', 40)
-HEADER_FONT = ('Times New Roman', 18)
-DEFAULT_FONT = ('Times New Roman', 13)
+TITLE_FONT = ('Verdana', 40)
+HEADER_FONT = ('Verdana', 18)
+DEFAULT_FONT = ('Verdana', 13)
 
 class AppGUI(tk.Tk):
 
@@ -22,7 +24,7 @@ class AppGUI(tk.Tk):
         # Initialize the window
         tk.Tk.__init__(self, *args, **kwargs)
         self.SCREEN_WIDTH = 1000
-        self.SCREEN_HEIGHT = 750
+        self.SCREEN_HEIGHT = 1000
         self.title('Grade Calculator')
         self.geometry(str(self.SCREEN_WIDTH)+"x"+str(self.SCREEN_HEIGHT))               # ADDED SCREEN_ TO MODIFY SIZE WINDOW
         self.resizable(0,0)
@@ -55,18 +57,18 @@ class MainMenuPage(tk.Frame):
     def __init__(self, parent, controller):
 
         # Initialize the Frame
-        tk.Frame.__init__(self, parent, bg='#FFCA33')
+        tk.Frame.__init__(self, parent, bg='#FFC62F')
 
         # Label for the title
-        self.title = tk.Label(self, text='Grade Calculator', font=TITLE_FONT, bg='#FFCA33')
+        self.title = tk.Label(self, text='Grade Calculator', font=TITLE_FONT, bg='#FFC62F')
         self.title.place(relx=0.5, rely=.2,anchor=CENTER)
 
         # Label for the title
-        self.title = tk.Label(self, text='Revamped By Eric Vo and Curtis Jones', font=HEADER_FONT, bg='#FFCA33')
+        self.title = tk.Label(self, text='Revamped By Trenton Smith', font=HEADER_FONT, bg='#FFC62F')
         self.title.place(relx=0.5, rely=.25, anchor=CENTER)
 
         # Label for the author
-        self.author = tk.Label(self, text='Source Code by Joshua Costa', font=HEADER_FONT, bg='#FFCA33')
+        self.author = tk.Label(self, text='Source Code by Eric Vo and Curtis Jones', font=HEADER_FONT, bg='#FFC62F')
         self.author.place(relx=.5, rely=.3,anchor=CENTER)
 
         # Start button
@@ -89,7 +91,7 @@ class CalculatorPage(tk.Frame):
     def __init__(self, parent, controller):
 
         # Initialize the Frame
-        tk.Frame.__init__(self, parent, bg='#FFCA33')
+        tk.Frame.__init__(self, parent, bg='#4F2683')
 
         # Create new GradeCalculator class
         self.calculator = GradeCalculator()
@@ -99,14 +101,14 @@ class CalculatorPage(tk.Frame):
         self.can_calculate_grade = False
 
         # Create the field that adds new categories
-        self.category_name_label = tk.Label(self, text='Category Name', font=HEADER_FONT, bg='#FFCA33')
+        self.category_name_label = tk.Label(self, text='Category Name', font=HEADER_FONT, bg='#4F2683')
         self.category_name_label.grid(row=0,column=0)
 
         self.new_category = tk.StringVar()
         self.category_name_entry = tk.Entry(self, textvariable=self.new_category, font=DEFAULT_FONT)
         self.category_name_entry.grid(row=1,column=0)
 
-        self.category_percentage_label = tk.Label(self, text='Impact in Percentage', font=HEADER_FONT, bg='#FFCA33')
+        self.category_percentage_label = tk.Label(self, text='Impact in Percentage', font=HEADER_FONT, bg='#4F2683')
         self.category_percentage_label.grid(row=2,column=0)
 
         self.new_category_percentage = tk.StringVar()
@@ -121,14 +123,14 @@ class CalculatorPage(tk.Frame):
         self.remove_category_button.grid(row=5, column=0, pady=5)
 
         # Create the field that adds new assignments
-        self.assignment_name_label = tk.Label(self, text='Assignment Name', font=HEADER_FONT, bg='#FFCA33')
+        self.assignment_name_label = tk.Label(self, text='Assignment Name', font=HEADER_FONT, bg='#4F2683')
         self.assignment_name_label.grid(row=0,column=1)
 
         self.new_assignment = tk.StringVar()
         self.assignment_name_entry = tk.Entry(self, textvariable=self.new_assignment, font=DEFAULT_FONT)
         self.assignment_name_entry.grid(row=1,column=1)
 
-        self.assignment_score_label = tk.Label(self, text='Assignment Score (Score/Possible Score)', font=HEADER_FONT, bg='#FFCA33')
+        self.assignment_score_label = tk.Label(self, text='Assignment Score (Score/Possible Score)', font=HEADER_FONT, bg='#4F2683')
         self.assignment_score_label.grid(row=2,column=1)
 
         self.new_assignment_score = tk.StringVar()
