@@ -2,8 +2,10 @@
 UI Module for Grade Calculator
 Author: Joshua Costa
 Revamp By: Eric Vo and Curtis Jones
+ReRevamped By: Trenton Smith
 Created: 3/15/19
 Revamped: 4/24/19
+Edited: 4/18/23
 '''
 
 class GradeCalculator:
